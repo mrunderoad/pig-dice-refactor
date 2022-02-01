@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Memory Game</title>
+  <title>Pig Dice Game</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="row"><div id="dice-image-header">
+      <h1>Pig Dice Game</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="center-game">
+        <h2 id="current-player"></h2>
+        <h1 id="roll-number-value">0</h1>
+        <button class="btn btn-lg btn-dark" type="submit" id="roll">Roll</button>
+        <button class="btn btn-lg btn-dark" id="hold">Hold</button>
+        
+    </div>  
+  </div>
+  <div class="row">
+    <div class="game-over">
+        <h2>GAME OVER</h3>
+        <h1>The Winner Is: <span id="winner-name"></span></h1>
+        <button class="btn btn-lg btn-dark" id="new-game">New Game</button>
+      </div>
+  </div>
+  <div class="row center-game">
+    <div class="col-lg-6">
+        <h4>Player 1</h4>
+        <p id="p1-current-tally">Tally: 0</p>
+        <p id="p1-total-score">Score: 0</p> 
+    </div>
+    <div class="col-lg-6">
+        <h4>Player 2</h4>
+        <p id="p2-current-tally">Tally: 0</p>
+        <p id="p2-total-score">Score: 0</p> 
+    </div>
+  </div>
+</div>
 </body>
 </html>
