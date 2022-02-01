@@ -19,8 +19,8 @@ export function Player(name) {
   this.tally = 0;
 }
 Player.prototype.getRandom = function(){
-  // let number = Math.floor((Math.random() * 6) + 1);
-  //   return number;
+  let number = Math.floor((Math.random() * 6) + 1);
+    return number;
   }  
 
 Player.prototype.rollDice = function(){
