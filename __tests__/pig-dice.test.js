@@ -13,21 +13,30 @@ describe('Player', () => {
     playerOne.rollDice();
     playerOne.tally;
     expect(playerOne.tally).toBeLessThanOrEqual(6);
-    expect(playerOne.tally).toBeGreaterThan(0);
+    expect(playerOne.tally).toBeGreaterThanOrEqual(0);
   });
-
-  // test('', () => {
-
-  // });
-
-  // test('', () => {
-
-  // });
-
-  // test('', () => {
-
-  // });
 });
+
+describe('Game', () => {
+
+  test('Should add current tally to total score of player and zero out tally', () => {
+    const playerOne = new Player("playerOne");
+    const game = new Game();
+    playerOne.rollDice();
+    game.hold();
+    expect(playerOne.tally).toEqual(0);
+    expect(playerOne.score).toBeLessThanOrEqual(6);
+  });
+});
+
+  // test('', () => {
+
+  // });
+
+  // test('', () => {
+
+  // });
+
 
 
 
