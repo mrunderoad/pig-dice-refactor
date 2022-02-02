@@ -42,6 +42,12 @@ describe('Game', () => {
     expect(game.player1.score).toBeLessThanOrEqual(6);
   });
 
+  test('tally should be set to zero if player rolls a 1', () => {
+    let game = new Game();
+    game.player1.rollDice = 1;
+    expect(game.player1.tally).toEqual(0);
+  });
+
 
   test('switches players if a 1 is rolled or if opponent holds', () => {
     let game = new Game();
