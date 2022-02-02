@@ -31,8 +31,9 @@ describe('Game', () => {
 
   test('New game object should create two players', () => {
     let game = new Game();
-    expect(game).toEqual({"currentPlayer": {"name": "Player 1", "score": 0, "tally": 0}, "player1": {"name": "Player 1", "score": 0, "tally": 0}, "player2": {"name": "Player 2", "score": 0, "tally": 0}
-    });
+    expect(game.player1).toEqual("Player 1");
+    expect(game.player2).toEqual("Player 2");
+    expect(game.currentPlayer).toEqual("Player 1");
   });
 });
 
