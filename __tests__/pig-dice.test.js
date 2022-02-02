@@ -3,17 +3,24 @@ import { Game } from "./../src/pig-dice.js";
 
 describe('Player', () => {
 
-  test('should correctly create a player object with name, score, and tally', () => {
-    const playerOne = new Player("playerOne");
-    expect(playerOne).toEqual({"name": "playerOne", "score": 0, "tally": 0})
+  test('should correctly create two player objects with name, score, and tally', () => {
+    let player1 = new Player("Player 1");
+    let player2 = new Player("Player 2");
+    expect(player1).toEqual({"name": "Player 1", "score": 0, "tally": 0});
+    expect(player2).toEqual({"name": "Player 2", "score": 0, "tally": 0});
+  });
+
+  test('gets random number between 1-6', () => {
+    let player1 = new Player("Player 1");
+    expect(player1.getRandom()).toBeLessThanOrEqual(6)
   });
 
   test('Should use getRandom and modify tally of player unless result is 1, then 0 out tally if so, return number rolled', () => {
-    const playerOne = new Player("playerOne");
-    playerOne.rollDice();
-    playerOne.tally;
-    expect(playerOne.tally).toBeLessThanOrEqual(6);
-    expect(playerOne.tally).toBeGreaterThanOrEqual(0);
+    let player1 = new Player("Player 1");
+    player1.rollDice();
+    player1.tally;
+    expect(player1.tally).toBeLessThanOrEqual(6);
+    expect(player1.tally).toBeGreaterThanOrEqual(0);
   });
 });
 
@@ -42,9 +49,30 @@ describe('Game', () => {
     expect(game.currentPlayer).toEqual({"name": "Player 2", "score": 0, "tally": 0});
   });
 
-  test('checks for winner', () => {
+  test('checks for no winner', () => {
     let game = new Game();
     expect(game.checkForWinner()).toEqual("none");
+  });
+
+  test('checks if player 1 is winner', () => {
+    let game = new Game();
+    game.player1.score = 100;
+    expect(game.checkForWinner()).toEqual("Player 1");
+  });
+
+  test('checks if player 2 is winner', () => {
+    let game = new Game();
+    game.player2.score = 100;
+    expect(game.checkForWinner()).toEqual("Player 2");
+  });
+
+  test('should see what player is playing before switching', () => {
+    let game = new Game();
+    let player2 = new Player("Player 2");
+    let player1 = new Player("Player 1");
+    game.currentPlayer = player2
+    game.switchPlayer();
+    expect(game.currentPlayer).toEqual(player1);
   });
 });
 
