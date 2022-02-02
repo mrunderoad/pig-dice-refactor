@@ -7,21 +7,22 @@ export function Game(){
 Game.prototype.switchPlayer = function(){
   if (this.currentPlayer.name==="Player 1"){
     this.currentPlayer = this.player2;
-
   }
   else{
     this.currentPlayer = this.player1;
   }  
 }
+
 export function Player(name) {
   this.name = name;
   this.score = 0;
   this.tally = 0;
 }
+
 Player.prototype.getRandom = function(){
   let number = Math.floor((Math.random() * 6) + 1);
     return number;
-  }  
+}  
 
 Player.prototype.rollDice = function(){
   let numberRolled = this.getRandom();
@@ -33,11 +34,13 @@ Player.prototype.rollDice = function(){
   }
   return numberRolled;
 }
+
 Game.prototype.hold = function(){
-  // this.currentPlayer.score += this.currentPlayer.tally;
-  // this.currentPlayer.tally = 0;
-  // this.switchPlayer();
+  this.currentPlayer.score += this.currentPlayer.tally;
+  this.currentPlayer.tally = 0;
+  this.switchPlayer();
 }
+
 Game.prototype.checkForWinner = function(){
   let winner="none";
   const scoreChecked1 = this.player1.score+this.player1.tally;

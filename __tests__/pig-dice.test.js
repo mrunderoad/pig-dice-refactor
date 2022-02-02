@@ -41,6 +41,11 @@ describe('Game', () => {
     game.switchPlayer();
     expect(game.currentPlayer).toEqual({"name": "Player 2", "score": 0, "tally": 0});
   });
+
+  test('checks for winner', () => {
+    let game = new Game();
+    expect(game.checkForWinner()).toEqual("none");
+  });
 });
 
 
