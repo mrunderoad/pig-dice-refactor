@@ -27,13 +27,13 @@ describe('Game', () => {
   });
 
 
-  // test('Should add current tally to total score of player and zero out tally', () => {
-  //   const game = new Game();
-  //   this.player1.rollDice();
-  //   this.hold();
-  //   expect(this.player1.tally).toBeGreaterThanOrEqual(0);
-  //   expect(this.player1.score).toBeLessThanOrEqual(6);
-  // });
+  test('Should add current tally to total score of player and zero out tally', () => {
+    let game = new Game();
+    game.player1.rollDice();
+    game.hold();
+    expect(game.player1.tally).toEqual(0);
+    expect(game.player1.score).toBeLessThanOrEqual(6);
+  });
 
 
   test('switches players if a 1 is rolled or if opponent holds', () => {

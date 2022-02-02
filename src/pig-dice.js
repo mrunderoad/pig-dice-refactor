@@ -5,13 +5,13 @@ export function Game(){
 }
 
 Game.prototype.switchPlayer = function(){
-  // if (this.currentPlayer.name==="Player 1"){
-  //   this.currentPlayer = this.player2;
+  if (this.currentPlayer.name==="Player 1"){
+    this.currentPlayer = this.player2;
 
-  // }
-  // else{
-  //   this.currentPlayer = this.player1;
-  // }  
+  }
+  else{
+    this.currentPlayer = this.player1;
+  }  
 }
 export function Player(name) {
   this.name = name;
