@@ -1,17 +1,17 @@
 export function Game(){
-  // this.player1 = new Player("Player 1");
-  // this.player2 = new Player("Player 2");
-  // this.currentPlayer = this.player1;
+   this.player1 = new Player("Player 1");
+   this.player2 = new Player("Player 2");
+   this.currentPlayer = this.player1;
 }
 
 Game.prototype.switchPlayer = function(){
-  if (this.currentPlayer.name==="Player 1"){
-    this.currentPlayer = this.player2;
+  // if (this.currentPlayer.name==="Player 1"){
+  //   this.currentPlayer = this.player2;
 
-  }
-  else{
-    this.currentPlayer = this.player1;
-  }  
+  // }
+  // else{
+  //   this.currentPlayer = this.player1;
+  // }  
 }
 export function Player(name) {
   this.name = name;
@@ -34,9 +34,9 @@ Player.prototype.rollDice = function(){
   return numberRolled;
 }
 Game.prototype.hold = function(){
-  this.currentPlayer.score += this.currentPlayer.tally;
-  this.currentPlayer.tally = 0;
-  this.switchPlayer();
+  // this.currentPlayer.score += this.currentPlayer.tally;
+  // this.currentPlayer.tally = 0;
+  // this.switchPlayer();
 }
 Game.prototype.checkForWinner = function(){
   let winner="none";

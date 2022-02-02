@@ -19,27 +19,29 @@ describe('Player', () => {
 
 describe('Game', () => {
 
-  // test('Should add current tally to total score of player and zero out tally', () => {
-  //   const playerOne = new Player("playerOne");
-  //   const game = new Game();
-  //   playerOne.rollDice();
-  //   game.hold();
-  //   expect(playerOne.tally).toEqual(0);
-  //   expect(playerOne.score).toBeLessThanOrEqual(6);
-  // });
-
-
   test('New game object should create two players', () => {
     let game = new Game();
-    expect(game.player1).toEqual("Player 1");
-    expect(game.player2).toEqual("Player 2");
-    expect(game.currentPlayer).toEqual("Player 1");
+    expect(game.player1).toEqual({"name": "Player 1", "score": 0, "tally":0});
+    expect(game.player2).toEqual({"name": "Player 2", "score": 0, "tally": 0});
+    expect(game.currentPlayer).toEqual({"name": "Player 1", "score": 0, "tally": 0});
+  });
+
+
+  // test('Should add current tally to total score of player and zero out tally', () => {
+  //   const game = new Game();
+  //   this.player1.rollDice();
+  //   this.hold();
+  //   expect(this.player1.tally).toBeGreaterThanOrEqual(0);
+  //   expect(this.player1.score).toBeLessThanOrEqual(6);
+  // });
+
+
+  test('switches players if a 1 is rolled or if opponent holds', () => {
+    let game = new Game();
+    game.switchPlayer();
+    expect(game.currentPlayer).toEqual({"name": "Player 2", "score": 0, "tally": 0});
   });
 });
-
-  // test('', () => {
-
-  // });
 
 
 
